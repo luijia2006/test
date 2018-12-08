@@ -1,0 +1,53 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<configuration>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 设置日志不超过${log.max.size}时的保存路径，注意如果是web项目会保存到Tomcat的bin目录 下 -->
+		<FileNamePattern>logs/appraise.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+		<!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>logs/appraise.%d{yyyy-MM-dd}.%i.log.zip
+			</FileNamePattern>
+			<!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+			<timeBasedFileNamingAndTriggeringPolicy
+					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- log日志超过多大启动压缩  单位是bt -->
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<!-- 日志输出的文件的格式 -->
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date{HH:mm:ss} [%-5level] %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<!-- 日志级别：生产环境改成error -->
+	<root level="console" >
+		<!-- 控制台输出：生产环境下去除 -->
+		<appender-ref ref="console" />
+		<!-- 日志文件输出 -->
+		<appender-ref ref="rollingFile" />
+	</root>
+
+	<!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+	<Logger name="net.sf.ehcache" level="error"/>
+	<logger name="org.apache" level="WARN" />
+	<logger name="org.hibernate" level="WARN" />
+	<logger name="org.springframework" level="WARN" />
+	<logger name="com.opensymphony" level="WARN" />
+	<logger name="org.mybatis" level="WARN" />
+	<logger name="tk.mybatis" level="WARN" />
+	<Logger name="com.fasterxml.jackson" level="WARN"/>
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="WARN" />
+	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="WARN" />
+	<logger name="org.hibernate.SQL" level="WARN" />
+	<logger name="org.hibernate.engine.QueryParameters" level="WARN" />
+	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="WARN" />
+
+</configuration>

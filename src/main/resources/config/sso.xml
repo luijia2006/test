@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+		<bean id="ssoConfig" class="com.we.sso.config.SSoConfig" >
+			<property name="loginPage" value="${sso.loginPage}" />
+			<property name="cookieKey" value="${sso.cookieKey}" />
+			<property name="domain" value="${sso.domain}" />
+			<property name="appKey" value="${sso.appkey}" />
+		</bean>
+		<bean id="redisLoginService" class="com.we.sso.interfaces.impl.RedisLoginService"></bean>
+</beans>

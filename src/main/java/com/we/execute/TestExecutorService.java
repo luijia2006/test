@@ -1,8 +1,5 @@
 package com.we.execute;
 
-import com.we.core.common.util.CollectionUtil;
-import com.we.core.common.util.Util;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -13,10 +10,8 @@ import java.util.concurrent.Future;
 public class TestExecutorService {
 
     public static void main(String[] args) {
-        List list = CollectionUtil.list();
-        if (Util.isEmpty(list)) {
-            System.out.println("true");
-        }
+        TestExecutorService testExecutorService = new TestExecutorService();
+        testExecutorService.excutor();
     }
 
     public void excutor() {
@@ -25,10 +20,23 @@ public class TestExecutorService {
 
         //创建10个任务并执行
         for (int i = 0; i < 10; i++){
-            //使用ExecutorService执行Callable类型的任务，并将结果保存在future变量中
+            //1.使用ExecutorService执行Callable类型的任务，并将结果保存在future变量中
             Future<String> future = executorService.submit(new TaskWithResult(i));
-            //将任务执行结果存储到List中
             resultList.add(future);
+
+
+            //2.没有返回结果的
+            /*executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("没有返回结果");
+                }
+            });*/
+
+            //3.没有返回结果的，lambda表达式
+            //executorService.execute(()->System.out.println("没有返回结果"));
+
+
         }
 
         //遍历任务的结果

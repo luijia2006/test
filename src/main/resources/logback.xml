@@ -28,7 +28,7 @@
 	</appender>
 
 	<!-- 日志级别：生产环境改成error -->
-	<root level="console" >
+	<root level="info" >
 		<!-- 控制台输出：生产环境下去除 -->
 		<appender-ref ref="console" />
 		<!-- 日志文件输出 -->

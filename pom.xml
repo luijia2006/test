@@ -50,85 +50,42 @@
 
 
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>9.2.23.v20171218</version>
-		</dependency>
-
-		<!-- jetty的客户端依赖，支持httpClient -->
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-client</artifactId>
-			<version>9.2.23.v20171218</version>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
+			<version>9.4.11.v20180605</version>
 		</dependency>
 
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlets</artifactId>
-			<version>9.2.23.v20171218</version>
+			<artifactId>jetty-jsp</artifactId>
+			<version>9.2.15.v20160210</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.eclipse.jetty.websocket</groupId>
-			<artifactId>websocket-server</artifactId>
-			<version>9.2.23.v20171218</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-webapp</artifactId>
-			<version>9.2.23.v20171218</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-annotations</artifactId>
-			<version>9.2.23.v20171218</version>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.12</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<!-- 本地开发环境 -->
-			<id>dev</id>
-			<properties>
-				<profiles.active>dev</profiles.active>
-			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		</profile>
-		<profile>
-			<!-- 测试环境 -->
-			<id>test</id>
-			<properties>
-				<profiles.active>test</profiles.active>
-			</properties>
-		</profile>
-		<profile>
-			<!-- 生产环境 -->
-			<id>pro</id>
-			<properties>
-				<profiles.active>pro</profiles.active>
-			</properties>
-		</profile>
-	</profiles>
+
 	<build>
 		<finalName>test</finalName>
-		<!--<resources>
-			<resource>
-				<directory>src/main/resources/config</directory>
-				&lt;!&ndash; 资源根目录排除各环境的配置，防止在生成目录中多余其它目录 &ndash;&gt;
-				<excludes>
-					<exclude>test/*</exclude>
-					<exclude>pro/*</exclude>
-					<exclude>dev/*</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>src/main/resources/config/${profiles.active}</directory>
-			</resource>
-		</resources>-->
 	</build>
 </project>

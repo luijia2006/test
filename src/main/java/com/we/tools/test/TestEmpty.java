@@ -9,8 +9,19 @@ import java.util.*;
 public class TestEmpty {
 
     public static void main(String[] args) {
-        TestTime();
-        testCalculate();
+        //TestTime();
+        //testCalculate();
+        listToSet();
+    }
+
+    public static void listToSet() {
+        List<String> list = CollectionUtil.list();
+        list.add("a");list.add("b");list.add("a");list.add("c");
+        System.out.println("list的个数为：" + list.size() + "个");
+        list.forEach(System.out::println);
+        Set<String> set = new HashSet<>(list);
+        System.out.println("set的个数为：" + set.size() + "个");
+        set.forEach(System.out::println);
     }
     /**
      * 排除有重复连续数字的元素

@@ -82,6 +82,44 @@
 			</exclusions>
 		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/nl.siegmann.epublib/epublib-core -->
+		<!-- https://mvnrepository.com/artifact/eu.freme-project/epublib-core -->
+		<dependency>
+			<groupId>eu.freme-project</groupId>
+			<artifactId>epublib-core</artifactId>
+			<version>0.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jodd/jodd-lagarto -->
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd-lagarto</artifactId>
+			<version>5.0.13</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/net.sf.kxml/kxml2 -->
+		<dependency>
+			<groupId>net.sf.kxml</groupId>
+			<artifactId>kxml2</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.25</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+
+
 	</dependencies>
 
 

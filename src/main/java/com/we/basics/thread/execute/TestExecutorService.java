@@ -7,6 +7,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * https://www.cnblogs.com/dolphin0520/p/3949310.html
+ */
 public class TestExecutorService {
 
     public static void main(String[] args) {

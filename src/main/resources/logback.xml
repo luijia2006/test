@@ -116,7 +116,10 @@
 	<logger name="org.hibernate.SQL" level="WARN" />
 	<logger name="org.hibernate.engine.QueryParameters" level="WARN" />
 	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="WARN" />
-
+	<logger name="com.alibaba" level="WARN" />
+	<logger name="com.ctrip" level="WARN" />
+	<logger name="com.netflix" level="WARN" />
+	<logger name="springfox.documentation.spring" level="WARN" />
 
 	<!-- 日志级别：生产环境改成error -->
 	<root level="debug" >

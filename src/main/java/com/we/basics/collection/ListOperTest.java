@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.basics.collection;
 
 import java.util.LinkedList;
 import java.util.List;

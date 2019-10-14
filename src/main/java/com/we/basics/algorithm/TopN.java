@@ -16,33 +16,33 @@ import java.util.Random;
  * 如果该节点不是叶子结点，则递归这一过程，直到这个节点变成叶子节点。
  */
 public class TopN {
-    public static int N = 10; //Top10
-    public static int LEN = 100000000; //1亿个整数
-    public static int arrs[] =  new int[LEN];
+    public static int N = 6; //Top10
+    public static int TOTOL = 10; //1亿个整数
+    public static int total_arrs[] =  new int[TOTOL];
     public static int result[] = new int[N]; //在内存维护一个长度为N的小顶堆
-    public static int len = result.length;
-    //堆中元素的有效元素 heapSize<=len
-    public static int heapSize = len;
+    public static int resultLen = result.length;
+    //堆中元素的有效元素 heapSize<=resultLen
+    public static int heapSize = resultLen;
     public static void main(String[] args) {
         //生成随机数组
-        for(int i = 0;i<LEN;i++){
-            arrs[i] = new Random().nextInt(999999999);
+        for(int i = 0;i<TOTOL;i++){
+            total_arrs[i] = new Random().nextInt(999999999);
         }
 
         //构建初始堆
         for(int i =  0;i<N;i++){
-            result[i] = arrs[i];
+            result[i] = total_arrs[i];
         }
         //构建小顶堆
         long start =System.currentTimeMillis();
         buildMinHeap();
-        for(int i = N;i<LEN;i++){
-            if(arrs[i] > result[0]){
-                result[0] = arrs[i];
+        for(int i = N;i<TOTOL;i++){
+            if(total_arrs[i] > result[0]){
+                result[0] = total_arrs[i];
                 minHeap(0);
             }
         }
-        System.out.println(LEN+"个数，求Top"+N+"，耗时"+(System.currentTimeMillis()-start)+"毫秒");
+        System.out.println(TOTOL+"个数，求Top"+N+"，耗时"+(System.currentTimeMillis()-start)+"毫秒");
         print();
     }
 
@@ -51,7 +51,7 @@ public class TopN {
      * 自底向上构建小堆
      */
     public static void buildMinHeap(){
-        int size = len / 2 -1 ; //最后一个非叶子节点
+        int size = resultLen / 2 -1 ; //最后一个非叶子节点
         for(int i = size;i>=0;i--){
             minHeap(i);
         }

@@ -12,8 +12,9 @@ import java.lang.reflect.Proxy;
 public class Client {  
   
     public static void main(String[] args) throws Throwable{  
-        // TODO Auto-generated method stub  
-  
+        // TODO Auto-generated method stub
+        //生成$Proxy0的class文件
+        //System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         Subject rs=new RealSubject();//这里指定被代理类  
         InvocationHandler ds=new DynamicSubject(rs);
         Class<?> cls=rs.getClass();  
@@ -22,7 +23,7 @@ public class Client {
           
         Subject subject=(Subject) Proxy.newProxyInstance(
                 cls.getClassLoader(),cls.getInterfaces(), ds);
-        createProxyClassFile(Subject.class);
+        //createProxyClassFile(Subject.class);
           
         //这里可以通过运行结果证明subject是Proxy的一个实例，这个实例实现了Subject接口  
         System.out.println(subject instanceof Proxy);  

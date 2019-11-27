@@ -1,4 +1,4 @@
-package com.we.epub;
+package com.we.file.epub;
 
 
 import nl.siegmann.epublib.domain.Book;

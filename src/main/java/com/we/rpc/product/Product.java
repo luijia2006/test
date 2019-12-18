@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.rpc.product;
 
 import java.io.Serializable;
 

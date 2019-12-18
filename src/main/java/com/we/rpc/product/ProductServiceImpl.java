@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.rpc.product;
 
 public class ProductServiceImpl implements ProductService {
     public Product selectProductById(long id) {

@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.rpc.order;
 
 public class OrderService {
     public Order selectOrderById(long id){

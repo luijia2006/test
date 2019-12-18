@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.rpc.user;
 
 public class UserServiceImpl implements UserService {
     public User selectUserById(Long id) {

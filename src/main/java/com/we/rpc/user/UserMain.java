@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.rpc.user;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -6,10 +6,10 @@ import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ProductMain {
+public class UserMain {
     public static void main(String[] args) {
         try {
-            ServerSocket serverSocket = new ServerSocket(8880);
+            ServerSocket serverSocket = new ServerSocket(9999);
             while (true) {
                 Socket socket = serverSocket.accept();
                 ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
@@ -21,8 +21,8 @@ public class ProductMain {
 
                 Class clazz = null;
                 // 服务注册：API到具体实现的映射关系
-                if (apiClassName.equals(ProductService.class.getName())) {
-                    clazz = ProductServiceImpl.class;
+                if (apiClassName.equals(UserService.class.getName())){
+                    clazz = UserServiceImpl.class;
                 }
                 ObjectOutputStream objectOutputStream = null;
                 if (null != clazz) {

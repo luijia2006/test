@@ -1,4 +1,4 @@
-package com.we.rpc;
+package com.we.rpc.user;
 
 import java.io.Serializable;
 

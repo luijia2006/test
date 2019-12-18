@@ -1,4 +1,7 @@
-package com.we.rpc;
+package com.we.rpc.order;
+
+import com.we.rpc.product.Product;
+import com.we.rpc.product.ProductService;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

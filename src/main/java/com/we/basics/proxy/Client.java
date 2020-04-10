@@ -8,7 +8,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-//客户端：生成代理实例，并调用了request()方法
+/**
+ * 客户端：生成代理实例，并调用了request()方法
+ * https://blog.csdn.net/jiankunking/article/details/52143504
+ */
 public class Client {  
   
     public static void main(String[] args) throws Throwable{  
